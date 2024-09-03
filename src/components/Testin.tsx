@@ -18,13 +18,14 @@ interface SpaceManagerProps {
     items: Item[];
     updateRegistrationNumber: (payload: { id: number; registrationNumber: string }) => void;
     setLength: (length: number) => void; 
+
 }
 
 interface SpaceManagerState {
     selectedId: number | null;
     registrationNumber: string;
     length: string; 
-    registrationError: string; // Added for validation error
+    registrationError: string; 
 }
 
 const REGISTRATION_REGEX = /^[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}$/;
@@ -37,7 +38,7 @@ class SpaceManager extends Component<SpaceManagerProps, SpaceManagerState> {
             registrationNumber: '',
             length: "", // Initialize length
             registrationError: '', 
-        };
+        }
     }
 
     handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
