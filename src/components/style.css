@@ -1,0 +1,113 @@
+/* src/SpaceManager.css */
+.space-manager {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.set-length-button{
+    padding: 7px;
+    color: white;
+    background-color:#00796b;
+}
+.set-length-button:hover{
+    box-shadow: 1px 2px red;
+    background-color:  #004d40;
+}
+
+.section {
+    width: 45%;
+}
+
+.available-spaces, .unavailable-spaces {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.available-spaces h2, .unavailable-spaces h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.space-item {
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.available {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+.unavailable {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.pay-button {
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pay-button:hover {
+    background-color: #004d40;
+    box-shadow: 1px 2px red;
+}
+
+.update-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.update-section h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.select-input, .text-input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.update-button {
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.update-button:hover {
+    background-color: #004d40;
+    box-shadow: 1px 2px red;
+}
