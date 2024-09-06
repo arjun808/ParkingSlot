@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+
 interface Item {
     id: number;
     registrationNumber: string;
@@ -27,15 +28,19 @@ const lengthSlice = createSlice({
                 id: index + 1,
                 registrationNumber: "",
                 isAvailable: true,
-                parkedAt: undefined, // Initial state has no parking time
+                parkedAt: undefined, 
             }));
+           
             localStorage.setItem('arrayLength', newLength.toString());
             localStorage.setItem('items', JSON.stringify(state.items));
         },
       
         updateRegistrationNumber(state, action: PayloadAction<{ id: number; registrationNumber: string }>) {
             const { id, registrationNumber } = action.payload;
-            const item = state.items.find(item => item.id === id);
+           
+            const item=state.items.find((item)=>{
+                return item.id===id
+            })
            
             if (item) {
                 item.registrationNumber = registrationNumber;
@@ -44,7 +49,7 @@ const lengthSlice = createSlice({
                     item.parkedAt = new Date().toISOString(); 
                 }
             }
-            localStorage.setItem('items', JSON.stringify(state.items)); // Save updated items array
+            localStorage.setItem('items', JSON.stringify(state.items)); 
         },
     },
 });

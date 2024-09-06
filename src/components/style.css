@@ -1,7 +1,14 @@
-/* src/SpaceManager.css */
+
 .space-manager {
     font-family: Arial, sans-serif;
     padding: 20px;
+}
+.available_grid{
+    display: grid;
+    width: 90%;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  
 }
 
 .title {
@@ -9,7 +16,9 @@
     margin-bottom: 20px;
     color: #333;
 }
-
+.mybtn{
+    display: flex;
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -27,6 +36,7 @@
 
 .section {
     width: 45%;
+ 
 }
 
 .available-spaces, .unavailable-spaces {

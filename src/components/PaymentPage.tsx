@@ -6,7 +6,7 @@ import { updateRegistrationNumber } from '../redux/lengthSlice';
 import { connect } from 'react-redux';
 import { AppDispatch } from '../redux/store';
 import toast from 'react-hot-toast';
-import axios from 'axios';
+// import axios from 'axios';
 
 interface PaymentPageProps {
     params: {
@@ -28,6 +28,7 @@ interface PaymentPageState {
 }
 
 class PaymentPage extends Component<PaymentPageProps, PaymentPageState> {
+    timeoutId: NodeJS.Timeout | null = null;
     constructor(props: PaymentPageProps) {
         super(props);
         this.state = {
@@ -63,11 +64,11 @@ class PaymentPage extends Component<PaymentPageProps, PaymentPageState> {
         if (item) {
             try {
                 
-            const result  =    await axios.post('https://httpstat.us/200', {
-                    carRegistration: item.registrationNumber,
-                    charge: totalAmount
-                });
-                console.log(result)
+            // const result  =    await axios.post('https://httpstat.us/200', {
+            //         carRegistration: item.registrationNumber,
+            //         charge: totalAmount
+            //     });
+            //     console.log(result)
 
          
                 const items = localStorage.getItem('items');
@@ -89,13 +90,18 @@ class PaymentPage extends Component<PaymentPageProps, PaymentPageState> {
                 toast.success("Payment Successful");
 
                 
-                setTimeout(() => {
+             this.timeoutId=   setTimeout(() => {
                     window.location.href = "/";
                 }, 2000);
             } catch (error) {
                 console.error("Error during payment:", error);
                 toast.error("Payment failed. Please try again.");
             }
+        }
+    }
+    componentWillUnmount(): void {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
         }
     }
 
